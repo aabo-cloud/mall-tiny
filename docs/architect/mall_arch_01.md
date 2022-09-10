@@ -246,7 +246,7 @@ package com.macro.mall.tiny.controller;
 import com.macro.mall.tiny.common.api.CommonPage;
 import com.macro.mall.tiny.common.api.CommonResult;
 import com.macro.mall.tiny.mbg.model.PmsBrand;
-import com.macro.mall.tiny.service.PmsBrandService;
+import com.macro.mall.tiny.service.PmsBrandServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -265,7 +265,7 @@ import java.util.List;
 @RequestMapping("/brand")
 public class PmsBrandController {
     @Autowired
-    private PmsBrandService demoService;
+    private PmsBrandServiceImpl demoService;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
 
@@ -344,7 +344,7 @@ import com.macro.mall.tiny.mbg.model.PmsBrand;
 import java.util.List;
 
 /**
- * PmsBrandService
+ * PmsBrandServiceImpl
  * Created by macro on 2019/4/19.
  */
 public interface PmsBrandService {
@@ -363,6 +363,7 @@ public interface PmsBrandService {
 
 ```
 ### 实现Service接口
+
 ```java
 package com.macro.mall.tiny.service.impl;
 
@@ -370,7 +371,6 @@ import com.github.pagehelper.PageHelper;
 import com.macro.mall.tiny.mbg.mapper.PmsBrandMapper;
 import com.macro.mall.tiny.mbg.model.PmsBrand;
 import com.macro.mall.tiny.mbg.model.PmsBrandExample;
-import com.macro.mall.tiny.service.PmsBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -381,7 +381,7 @@ import java.util.List;
  * Created by macro on 2019/4/19.
  */
 @Service
-public class PmsBrandServiceImpl implements PmsBrandService {
+public class PmsBrandServiceImpl implements com.macro.mall.tiny.service.PmsBrandServiceImpl {
     @Autowired
     private PmsBrandMapper brandMapper;
 

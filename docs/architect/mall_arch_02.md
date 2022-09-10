@@ -99,7 +99,7 @@ package com.macro.mall.tiny.controller;
 import com.macro.mall.tiny.common.api.CommonPage;
 import com.macro.mall.tiny.common.api.CommonResult;
 import com.macro.mall.tiny.mbg.model.PmsBrand;
-import com.macro.mall.tiny.service.PmsBrandService;
+import com.macro.mall.tiny.service.PmsBrandServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -122,7 +122,7 @@ import java.util.List;
 @RequestMapping("/brand")
 public class PmsBrandController {
     @Autowired
-    private PmsBrandService brandService;
+    private PmsBrandServiceImpl brandService;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);
 
