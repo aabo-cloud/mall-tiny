@@ -1,8 +1,11 @@
 package com.macro.mall.tiny.common.api;
 
 import com.github.pagehelper.PageInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +17,8 @@ import java.util.List;
  */
 public class CommonPage<T> {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommonPage.class);
+
     private Integer pageNum;
     private Integer pageSize;
     private Integer totalPage;
@@ -22,6 +27,10 @@ public class CommonPage<T> {
 
     /**
      * 将PageHelper分页后的list转为分页信息
+     *
+     * @param list
+     * @param <T>
+     * @return
      */
     public static <T> CommonPage<T> restPage(List<T> list) {
         CommonPage<T> result = new CommonPage<>();
@@ -36,6 +45,10 @@ public class CommonPage<T> {
 
     /**
      * 将SpringData分页后的list转为分页信息
+     *
+     * @param pageInfo
+     * @param <T>
+     * @return
      */
     public static <T> CommonPage<T> restPage(Page<T> pageInfo) {
         CommonPage<T> result = new CommonPage<>();

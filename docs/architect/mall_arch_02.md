@@ -99,7 +99,7 @@ package com.macro.mall.tiny.controller;
 import com.macro.mall.tiny.common.api.CommonPage;
 import com.macro.mall.tiny.common.api.CommonResult;
 import com.macro.mall.tiny.mbg.model.PmsBrand;
-import com.macro.mall.tiny.service.PmsBrandServiceImpl;
+import com.macro.mall.tiny.service.impl.PmsBrandServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

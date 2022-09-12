@@ -18,6 +18,7 @@ import java.util.Properties;
  * @createTime 2022/9/10 11:38
  */
 public class CommentGenerator extends DefaultCommentGenerator {
+
     private boolean addRemarkComments = false;
     private static final String EXAMPLE_SUFFIX = "Example";
     private static final String API_MODEL_PROPERTY_FULL_CLASS_NAME = "io.swagger.annotations.ApiModelProperty";

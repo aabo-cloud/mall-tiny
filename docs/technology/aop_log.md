@@ -58,7 +58,7 @@ execution(public * com.macro.mall.tiny.controller.*.*(..))
 //com.macro.mall.tiny.service包及其子包下所有类中的所有方法都应用切面里的通知
 execution(* com.macro.mall.tiny.service..*.*(..))
 //com.macro.mall.tiny.service.PmsBrandService类中的所有方法都应用切面里的通知
-execution(* com.macro.mall.tiny.service.PmsBrandServiceImpl.*(..))
+execution(* com.macro.mall.tiny.service.impl.PmsBrandServiceImpl.*(..))
 ```
 
 ## 添加AOP切面实现接口日志记录

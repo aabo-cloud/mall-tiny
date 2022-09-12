@@ -246,7 +246,7 @@ package com.macro.mall.tiny.controller;
 import com.macro.mall.tiny.common.api.CommonPage;
 import com.macro.mall.tiny.common.api.CommonResult;
 import com.macro.mall.tiny.mbg.model.PmsBrand;
-import com.macro.mall.tiny.service.PmsBrandServiceImpl;
+import com.macro.mall.tiny.service.impl.PmsBrandServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -381,7 +381,7 @@ import java.util.List;
  * Created by macro on 2019/4/19.
  */
 @Service
-public class PmsBrandServiceImpl implements com.macro.mall.tiny.service.PmsBrandServiceImpl {
+public class PmsBrandServiceImpl implements com.macro.mall.tiny.service.impl.PmsBrandServiceImpl {
     @Autowired
     private PmsBrandMapper brandMapper;
 

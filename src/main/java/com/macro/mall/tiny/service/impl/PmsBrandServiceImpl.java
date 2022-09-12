@@ -1,10 +1,10 @@
-package com.macro.mall.tiny.service;
+package com.macro.mall.tiny.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.macro.mall.tiny.mbg.mapper.PmsBrandMapper;
 import com.macro.mall.tiny.mbg.model.PmsBrand;
 import com.macro.mall.tiny.mbg.model.PmsBrandExample;
-import com.macro.mall.tiny.service.impl.PmsBrandService;
+import com.macro.mall.tiny.service.PmsBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +47,9 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     @Override
     public List<PmsBrand> listBrand(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
+        // 通过 PageHelper 的分页插件
+        // 这里返回的 List 已经是一个 Page 了
+        // 因为 Page 继承 List，所以可以这么写
         return brandMapper.selectByExample(new PmsBrandExample());
     }
 
