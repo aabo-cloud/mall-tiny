@@ -24,6 +24,8 @@ public class AdminUserDetails implements UserDetails {
 
     private List<UmsPermission> permissionList;
 
+    public AdminUserDetails() {}
+
     public AdminUserDetails(UmsAdmin umsAdmin, List<UmsPermission> permissionList) {
         this.umsAdmin = umsAdmin;
         this.permissionList = permissionList;

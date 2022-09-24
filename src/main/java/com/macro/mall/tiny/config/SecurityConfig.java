@@ -18,6 +18,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,10 +27,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import java.util.List;
 
-
 /**
  * SpringSecurity的配置
- * Created by macro on 2018/4/26.
+ * Created by IntelliJ IDEA.
+ *
+ * @author aabo
+ * @createTime 2022/9/24 14:28
  */
 @Configuration
 @EnableWebSecurity
@@ -97,14 +100,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService userDetailsService() {
         //获取登录用户信息
-        return username -> {
-            UmsAdmin admin = adminService.getAdminByUsername(username);
-            if (admin != null) {
-                List<UmsPermission> permissionList = adminService.getPermissionList(admin.getId());
-                return new AdminUserDetails(admin, permissionList);
+        return new UserDetailsService() {
+            @Override
+            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+                UmsAdmin admin = adminService.getAdminByUsername(username);
+                if (admin != null) {
+                    List<UmsPermission> permissionList = adminService.getPermissionList(admin.getId());
+                    return new AdminUserDetails(admin, permissionList);
+                }
+                throw new UsernameNotFoundException("用户名或密码错误");
             }
-            throw new UsernameNotFoundException("用户名或密码错误");
         };
+//                username -> {
+//            UmsAdmin admin = adminService.getAdminByUsername(username);
+//            if (admin != null) {
+//                List<UmsPermission> permissionList = adminService.getPermissionList(admin.getId());
+//                return new AdminUserDetails(admin, permissionList);
+//            }
+//            throw new UsernameNotFoundException("用户名或密码错误");
+//        };
     }
 
     @Bean
